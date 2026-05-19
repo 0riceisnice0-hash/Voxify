@@ -160,41 +160,19 @@
     .why-card p { font-size: .875rem; color: var(--muted); }
 
     /* ── Demo ── */
-    .demo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px; }
-    @media(max-width:640px){ .demo-grid { grid-template-columns: 1fr; } }
-    .demo-card-label {
-      font-size: .7rem; letter-spacing: .1em; text-transform: uppercase;
-      font-weight: 700; margin-bottom: 10px;
-    }
-    .demo-card-label.before { color: var(--muted); }
-    .demo-card-label.after { color: var(--purple); }
-    .demo-card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 14px; }
-    .audio-placeholder {
-      background: rgba(255,255,255,.04);
-      border: 1px dashed rgba(255,255,255,.12);
-      border-radius: 10px; padding: 20px;
-      text-align: center; color: var(--muted); font-size: .85rem;
-    }
-    audio { width: 100%; border-radius: 8px; accent-color: var(--purple); }
-    .video-demo-card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 6px; }
-    .video-demo-card p { font-size: .875rem; color: var(--muted); margin-bottom: 16px; }
-    .video-placeholder {
-      background: rgba(255,255,255,.03);
-      border: 1px dashed rgba(255,255,255,.12);
+    .video-demo-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; }
+    .video-demo-card p { font-size: .875rem; color: var(--muted); margin-bottom: 20px; }
+    .video-wrap {
       border-radius: 12px;
-      aspect-ratio: 16/9;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 10px; color: var(--muted); font-size: .9rem;
+      overflow: hidden;
+      background: #000;
+      line-height: 0;
     }
-    .video-placeholder .play-icon {
-      width: 52px; height: 52px;
-      background: rgba(139,92,246,.2);
-      border: 1.5px solid rgba(139,92,246,.4);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem;
+    .video-wrap video {
+      width: 100%;
+      display: block;
+      border-radius: 12px;
     }
-    iframe.video-embed { width: 100%; aspect-ratio: 16/9; border: none; border-radius: 12px; }
 
     /* ── Install steps ── */
     .steps { display: flex; flex-direction: column; gap: 16px; }
@@ -376,41 +354,15 @@
 <!-- ░░ DEMO ░░ -->
 <section id="demo">
   <div class="container">
-    <p class="section-label">Audio Preview</p>
-    <h2 class="section-title">Hear the difference</h2>
-    <p class="section-desc">Compare your original microphone audio against the Voxify AI Female Voice output.</p>
-
-    <div class="demo-grid">
-      <!-- Before -->
-      <div class="card">
-        <p class="demo-card-label before">▶ Before</p>
-        <h3>Original microphone audio</h3>
-        <!-- Replace the src below with your actual before.mp3 file path -->
-        <!-- <audio controls src="audio/before.mp3"></audio> -->
-        <div class="audio-placeholder">🎙 Audio sample coming soon<br><small>Replace with &lt;audio controls src="audio/before.mp3"&gt;</small></div>
-      </div>
-      <!-- After -->
-      <div class="card" style="border-color:rgba(139,92,246,.4);box-shadow:0 0 32px rgba(139,92,246,.18);">
-        <p class="demo-card-label after">✦ After</p>
-        <h3>Voxify AI Female Voice</h3>
-        <!-- Replace the src below with your actual after.mp3 file path -->
-        <!-- <audio controls src="audio/after.mp3"></audio> -->
-        <div class="audio-placeholder" style="border-color:rgba(139,92,246,.25);">✨ Audio sample coming soon<br><small>Replace with &lt;audio controls src="audio/after.mp3"&gt;</small></div>
-      </div>
-    </div>
-
-    <!-- Video demo -->
+    <p class="section-label">Live Demo</p>
+    <h2 class="section-title">Watch Zac test it live</h2>
+    <p class="section-desc">Webcam + real-time AI Female Voice conversion — recorded live by Zac.</p>
     <div class="card video-demo-card">
-      <h3>Watch Zach test it live</h3>
-      <p>Webcam + real-time converted voice playback demo.</p>
-      <!--
-        To embed a YouTube video replace the placeholder below with:
-        <iframe class="video-embed" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe>
-      -->
-      <div class="video-placeholder">
-        <div class="play-icon">▶</div>
-        <span>Video demo coming soon</span>
-        <small style="font-size:.75rem;">Replace this block with your &lt;iframe&gt; or &lt;video&gt; element</small>
+      <div class="video-wrap">
+        <video controls preload="metadata">
+          <source src="2026-05-19 21-15-40.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
       </div>
     </div>
   </div>
@@ -475,10 +427,7 @@
           <div style="font-size:2.5rem;margin-bottom:12px;">⬇</div>
           <h3 style="font-size:1.2rem;margin-bottom:6px;">Voxify Premium Engine</h3>
           <p style="color:var(--muted);font-size:.875rem;margin-bottom:24px;">Windows · Beta · Free for Premium members</p>
-          <!--
-            Replace href below with your actual download URL, e.g.:
-            href="https://your-cdn.com/VoxifyPremiumEngine-setup.exe"
-          -->
+          <!-- Replace href below with your actual download URL -->
           <a href="#" class="btn btn-primary" style="width:100%;justify-content:center;">
             <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3v13m-6-6 6 6 6-6"/><rect x="3" y="19" width="18" height="2" rx="1"/></svg>
             Download for Windows
@@ -548,7 +497,7 @@
 <section id="developer">
   <div class="container" style="max-width:780px;">
     <p class="section-label">From the developer</p>
-    <h2 class="section-title">A note from Zach</h2>
+    <h2 class="section-title">A note from Zac</h2>
     <div class="card">
       <div class="dev-card">
         <div class="dev-avatar">Z</div>
@@ -558,7 +507,7 @@
             so I've been working on a more realistic AI version. This beta is for people who want to help shape it.
             Your feedback in Discord genuinely determines what gets worked on next — thank you for being part of this."
           </p>
-          <p class="author">— Zach, developer of Voxify</p>
+          <p class="author">— Zac, developer of Voxify</p>
         </div>
       </div>
     </div>
@@ -578,7 +527,7 @@
       <a href="privacy.html">Privacy</a>
       <a href="mailto:contact@voxify.app">Contact</a>
     </nav>
-    <p class="footer-copy">© 2024 Voxify. Made with ❤ by Zach.</p>
+    <p class="footer-copy">© 2026 Voxify. Made with ❤ by Zac.</p>
   </div>
 </footer>
 
